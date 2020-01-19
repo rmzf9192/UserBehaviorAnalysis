@@ -34,7 +34,7 @@ object AdStatisticsByGeo {
     env.setParallelism(1)
 
     // 读取数据并转换成AdClickEvent
-    val resource = getClass.getResource("E:\\study\\idea_workspace_spark\\UserBehaviorAnalysis\\MarketAnalysis\\src\\main\\resources\\AdClickLog.csv")
+    val resource = getClass.getResource("/AdClickLog.csv")
     val adEventStream = env.readTextFile(resource.getPath)
       .map( data => {
         val dataArray = data.split(",")

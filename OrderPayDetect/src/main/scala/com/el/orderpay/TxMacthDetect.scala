@@ -24,7 +24,7 @@ object TxMacthDetect {
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
 
     // 读取订单事件流
-    val resource = getClass.getResource("E:\\study\\idea_workspace_spark\\UserBehaviorAnalysis\\OrderPayDetect\\src\\main\\resources\\OrderLog.csv")
+    val resource = getClass.getResource("/OrderLog.csv")
     //    val orderEventStream = env.readTextFile(resource.getPath)
     val orderEventStream = env.socketTextStream("localhost", 7777)
       .map(data => {
@@ -36,7 +36,7 @@ object TxMacthDetect {
       .keyBy(_.txId)
 
     // 读取支付到账事件流
-    val receiptResource = getClass.getResource("E:\\study\\idea_workspace_spark\\UserBehaviorAnalysis\\OrderPayDetect\\src\\main\\resources\\ReceiptLog.csv")
+    val receiptResource = getClass.getResource("/ReceiptLog.csv")
     //    val receiptEventStream = env.readTextFile(receiptResource.getPath)
     val receiptEventStream = env.socketTextStream("localhost", 8888)
       .map( data => {

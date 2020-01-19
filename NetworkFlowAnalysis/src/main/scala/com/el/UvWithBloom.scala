@@ -20,7 +20,7 @@ object UvWithBloom {
     env.setParallelism(1)
 
     // 用相对路径定义数据源
-    val resource = getClass.getResource("E:\\study\\idea_workspace_spark\\UserBehaviorAnalysis\\NetworkFlowAnalysis\\src\\main\\resources\\UserBehavior.csv")
+    val resource = getClass.getResource("/UserBehavior.csv")
     val dataStream = env.readTextFile(resource.getPath)
       .map(data => {
         val dataArray = data.split(",")

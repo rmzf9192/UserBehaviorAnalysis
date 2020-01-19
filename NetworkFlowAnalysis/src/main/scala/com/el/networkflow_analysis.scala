@@ -30,7 +30,7 @@ object networkflow_analysis {
     env.setParallelism(1)
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
 
-        val dataStream = env.readTextFile("E:\\study\\idea_workspace_spark\\UserBehaviorAnalysis\\NetworkFlowAnalysis\\src\\main\\resources\\apache.log")
+        val dataStream = env.readTextFile("/apache.log")
 //    val dataStream = env.socketTextStream("localhost", 7777)
       .map( data => {
         val dataArray = data.split(" ")

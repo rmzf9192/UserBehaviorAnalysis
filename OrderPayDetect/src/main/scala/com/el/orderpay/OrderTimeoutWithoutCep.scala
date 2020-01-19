@@ -19,7 +19,7 @@ object OrderTimeoutWithoutCep {
     env.setParallelism(1)
 
     // 读取订单数据
-    val resource = getClass.getResource("E:\\study\\idea_workspace_spark\\UserBehaviorAnalysis\\OrderPayDetect\\src\\main\\resources\\OrderLog.csv")
+    val resource = getClass.getResource("/OrderLog.csv")
     //    val orderEventStream = env.readTextFile(resource.getPath)
     val orderEventStream = env.socketTextStream("localhost", 7777)
       .map(data => {

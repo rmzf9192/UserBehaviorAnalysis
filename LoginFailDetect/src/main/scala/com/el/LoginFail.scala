@@ -27,7 +27,7 @@ object LoginFail {
     env.setParallelism(1)
 
     // 读取事件数据
-    val resource = getClass.getResource("E:\\study\\idea_workspace_spark\\UserBehaviorAnalysis\\LoginFailDetect\\src\\main\\resources\\LoginLog.csv")
+    val resource = getClass.getResource("/LoginLog.csv")
     val loginEventStream = env.readTextFile(resource.getPath)
       .map( data => {
         val dataArray = data.split(",")
